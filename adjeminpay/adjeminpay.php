@@ -34,8 +34,8 @@ function deactivate_adjeminpay(){
     // generate a CPT
     // $this->custom_post_type();
     // flush rewrite rules
-    delete_option('client_id');
-    delete_option('client_secret');
+    //delete_option('client_id');
+    //delete_option('client_secret');
     flush_rewrite_rules();
 }
 
