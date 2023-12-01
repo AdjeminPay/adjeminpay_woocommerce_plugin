@@ -11,6 +11,5 @@ Download the plugin via: https://github.com/AdjeminPay/adjeminpay_woocommerce_pl
 ## 4. Configuration in WooCommerce
 ## 5. AdjeminPay Settings
 ## 6. Checkout page
-## 7. Checkout page
-## 8. Payment successful
-## 9. Failed payment
+## 7. Payment successful
+## 8. Failed payment
