@@ -7,7 +7,7 @@
 * Description: AdjeminPay vous permet de recevoir des paiements mobile money et carte bancaire dans votre site woocommerce.
 * Author: Adjemin
 * Author URI: http://adjemin.com
-* Version: 3.0.0
+* Version: 3.0.1
 *
 */
 
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define( 'ADJEMINPAY_VERSION', '3.0.0' );
+define( 'ADJEMINPAY_VERSION', '3.0.1' );
 define( 'ADJEMINPAY_PLUGIN_DIR', dirname(__FILE__).'/' );
 define( 'ADJEMINPAY_PLUGIN_URL', trailingslashit(plugin_dir_url( __FILE__ ).'/' ));
 
@@ -34,8 +34,8 @@ function deactivate_adjeminpay(){
     // generate a CPT
     // $this->custom_post_type();
     // flush rewrite rules
-    //delete_option('client_id');
-    //delete_option('client_secret');
+    delete_option('client_id');
+    delete_option('client_secret');
     flush_rewrite_rules();
 }
 

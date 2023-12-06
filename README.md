@@ -4,7 +4,7 @@ Gateway sdk to allow online payment in your Woocommerce
 
 ## 1. Add the plugin to your wordpress
 
-Download the plugin via: https://github.com/AdjeminPay/adjeminpay_woocommerce_plugin/raw/main/adjeminpay_v3.0.0.zip
+Download the plugin via: https://github.com/AdjeminPay/adjeminpay_woocommerce_plugin/raw/main/adjeminpay_v3.0.1.zip
 
 ## 2. Installing AdjeminPay
 ## 3. Activate AdjeminPay in WooCommerce

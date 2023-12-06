@@ -63,7 +63,21 @@ class WC_Gateway_Adjeminpay_Request {
         $clientSecret = $this->gateway->get_option('client_secret');
 
         $merchant_trans_id = "woocommerce_order_" . $order->get_id() . "_" . time();
-        $merchant_trans_data = wp_json_encode($order->get_data());
+
+        // Get the Customer billing phone
+        $merchant_trans_data = wp_json_encode([
+            "order_id" => $order->get_id(),
+            "parent_id" => $order->get_parent_id(),
+            "user_id" => $order->get_user_id(),
+            "order_status" => $order->get_status(),
+            "currency" => $order->get_currency(),
+            "date_created" => $order->get_date_created(),
+            "order_received_url" => $order->get_checkout_order_received_url(),
+            "billing_first_name" => $order->get_billing_first_name()??'',
+            "billing_last_name" => $order->get_billing_last_name()??'',
+            "billing_phone" => $order->get_billing_phone()??''
+        ]);
+
 
         $webhook_url = $this->notify_url;
         $return_url  = esc_url_raw( add_query_arg( 'utm_nooverride', '1', $this->gateway->get_return_url( $order ) ) );
@@ -75,13 +89,13 @@ class WC_Gateway_Adjeminpay_Request {
             'merchant_trans_id' => $merchant_trans_id,
             'merchant_trans_data' => $merchant_trans_data,
             'designation' => "Paiement en ligne",
-            'customer_recipient_number' =>  $order->get_billing_phone()??'',
+            //'customer_recipient_number' =>  $order->get_billing_phone()??'',
             'customer_email' => $order->get_billing_email()??'',
             'customer_firstname' => $order->get_billing_first_name()??'',
             'customer_lastname' => $order->get_billing_last_name()??'',
             'webhook_url' => $webhook_url,
             'return_url' => $return_url,
-            "cancel_url" => $cancel_url,
+            "cancel_url" => $cancel_url
         );
 
 
